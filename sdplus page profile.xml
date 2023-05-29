@@ -1,0 +1,787 @@
+<DevicePage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="9f7caacb-b4e5-4889-b37c-d5964d95648f" IsDefaultPage="true" Name="FCU" xmlns="http://www.fsgs.com/SPAD">
+  <Events>
+    <Event BoundTo="EGSD_2_2">
+      <EventDefinitions>
+        <EventDefinition SingletonID="91fb60b2-de15-4877-9e09-7c0c84f9bf72" Trigger="DEFAULTDATA">
+          <EventActions>
+            <EventActionDummy SingletonID="91fb60b2-de15-4877-9e09-7c0c84f9bf72">
+              <Data type="SimpleGauge">
+                <SimpleGauge>
+                  <GaugeLayers>
+                    <GaugeColorLayer Layer="0" Name="BackgroundLayer" Width="120" Height="120" />
+                    <GaugeImageLayer Layer="1" Width="120" Height="120" ImageId="00000000-0000-0000-0000-000000000000" />
+                    <GaugeTextLayer Layer="2" Name="Textlayer" X="6" Y="6" Width="108" Height="108" Foreground="Sienna" Font="MS 33558" FontSize="12">
+                      <Text>HDG V/S TRACK FPA</Text>
+                    </GaugeTextLayer>
+                  </GaugeLayers>
+                </SimpleGauge>
+              </Data>
+            </EventActionDummy>
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="PRESSSHORT">
+          <EventActions>
+            <EventActionChangeValue TargetDataDefinition="LVAR:I_FCU_TRACK_FPA_MODE" Value="1" ValueOperation="Increment">
+              <Options>
+                <Option Key="HASMINMAX" Value="True" />
+                <Option Key="VALUEMAX" Value="1" />
+                <Option Key="ROLLOVER" Value="True" />
+              </Options>
+            </EventActionChangeValue>
+          </EventActions>
+        </EventDefinition>
+      </EventDefinitions>
+    </Event>
+    <Event BoundTo="EGSD_2_1">
+      <EventDefinitions>
+        <EventDefinition SingletonID="91fb60b2-de15-4877-9e09-7c0c84f9bf72" Trigger="DEFAULTDATA">
+          <EventActions>
+            <EventActionDummy SingletonID="91fb60b2-de15-4877-9e09-7c0c84f9bf72">
+              <Data type="SimpleGauge">
+                <SimpleGauge>
+                  <GaugeLayers>
+                    <GaugeColorLayer Layer="0" Name="BackgroundLayer" Width="120" Height="120" />
+                    <GaugeImageLayer Layer="1" Width="120" Height="120" ImageId="00000000-0000-0000-0000-000000000000" />
+                    <GaugeTextLayer Layer="2" Name="Textlayer" X="6" Y="6" Width="108" Height="108" Foreground="Sienna" Font="MS 33558" FontSize="20">
+                      <Text>SPD MACH</Text>
+                    </GaugeTextLayer>
+                  </GaugeLayers>
+                </SimpleGauge>
+              </Data>
+            </EventActionDummy>
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="PRESSSHORT" IsFinal="true">
+          <EventActions>
+            <EventActionChangeValue TargetDataDefinition="LVAR:S_FCU_SPD_MACH" Value="1" ValueOperation="Increment">
+              <Options>
+                <Option Key="HASMINMAX" Value="True" />
+                <Option Key="VALUEMAX" Value="1" />
+                <Option Key="ROLLOVER" Value="True" />
+              </Options>
+            </EventActionChangeValue>
+          </EventActions>
+        </EventDefinition>
+      </EventDefinitions>
+    </Event>
+    <Event BoundTo="EGSD_2_3">
+      <EventDefinitions>
+        <EventDefinition SingletonID="91fb60b2-de15-4877-9e09-7c0c84f9bf72" Trigger="DEFAULTDATA">
+          <EventActions>
+            <EventActionDummy SingletonID="91fb60b2-de15-4877-9e09-7c0c84f9bf72">
+              <Data type="SimpleGauge">
+                <SimpleGauge>
+                  <GaugeLayers>
+                    <GaugeColorLayer Layer="0" Name="BackgroundLayer" Width="120" Height="120" />
+                    <GaugeImageLayer Layer="1" Width="120" Height="120" ImageId="00000000-0000-0000-0000-000000000000" />
+                    <GaugeTextLayer Layer="2" Name="Textlayer" X="6" Y="6" Width="108" Height="108" Foreground="Sienna" Font="MS 33558" FontSize="13">
+                      <Text>100 / 1000</Text>
+                    </GaugeTextLayer>
+                  </GaugeLayers>
+                </SimpleGauge>
+              </Data>
+            </EventActionDummy>
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="PRESSSHORT" IsFinal="true">
+          <EventActions>
+            <EventActionChangeValue TargetDataDefinition="LVAR:S_FCU_ALTITUDE_SCALE" Value="1" ValueOperation="Increment">
+              <Options>
+                <Option Key="HASMINMAX" Value="True" />
+                <Option Key="VALUEMAX" Value="1" />
+                <Option Key="ROLLOVER" Value="True" />
+              </Options>
+            </EventActionChangeValue>
+          </EventActions>
+        </EventDefinition>
+      </EventDefinitions>
+    </Event>
+    <Event BoundTo="EGSD_E_1">
+      <EventDefinitions>
+        <EventDefinition Trigger="TUNER_COUNTERCLOCKWISE" EnableAcceleration="true">
+          <EventActions>
+            <EventActionPlaySound SoundName="D:\Users\Lianna\Documents\SPAD.neXt\Sound\Foley\Click.mp3">
+              <Volume>50</Volume>
+            </EventActionPlaySound>
+            <EventActionChangeValue TargetDataDefinition="LVAR:E_FCU_SPEED" Value="1" ValueOperation="Decrement" />
+          </EventActions>
+          <Options>
+            <Option Key="ACCEL_MAX" Value="3" />
+            <Option Key="ACCEL_TIMEOUT" Value="100" />
+          </Options>
+        </EventDefinition>
+        <EventDefinition Trigger="TUNER_CLOCKWISE" EnableAcceleration="true">
+          <EventActions>
+            <EventActionPlaySound SoundName="D:\Users\Lianna\Documents\SPAD.neXt\Sound\Foley\Click.mp3">
+              <Volume>50</Volume>
+            </EventActionPlaySound>
+            <EventActionChangeValue TargetDataDefinition="LVAR:E_FCU_SPEED" Value="1" ValueOperation="Increment" />
+          </EventActions>
+          <Options>
+            <Option Key="ACCEL_TIMEOUT" Value="100" />
+            <Option Key="ACCEL_MULTIPLIER" Value="3" />
+            <Option Key="ACCEL_MAX" Value="3" />
+          </Options>
+        </EventDefinition>
+        <EventDefinition Trigger="PRESSSHORT">
+          <EventActions>
+            <EventActionChangeValue TargetDataDefinition="LVAR:S_FCU_SPEED" Value="1" ValueOperation="Decrement" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="PRESSLONG">
+          <EventActions>
+            <EventActionChangeValue TargetDataDefinition="LVAR:S_FCU_SPEED" Value="1" ValueOperation="Increment" />
+          </EventActions>
+        </EventDefinition>
+      </EventDefinitions>
+    </Event>
+    <Event BoundTo="EGSD_E_2">
+      <EventDefinitions>
+        <EventDefinition Trigger="TUNER_CLOCKWISE" EnableAcceleration="true">
+          <EventActions>
+            <EventActionPlaySound SoundName="D:\Users\Lianna\Documents\SPAD.neXt\Sound\Foley\Click.mp3">
+              <Volume>60</Volume>
+            </EventActionPlaySound>
+            <EventActionChangeValue TargetDataDefinition="LVAR:E_FCU_HEADING" Value="1" ValueOperation="Increment" />
+          </EventActions>
+          <Options>
+            <Option Key="ACCEL_TIMEOUT" Value="100" />
+            <Option Key="ACCEL_MAX" Value="3" />
+          </Options>
+        </EventDefinition>
+        <EventDefinition Trigger="TUNER_COUNTERCLOCKWISE" EnableAcceleration="true">
+          <EventActions>
+            <EventActionPlaySound SoundName="D:\Users\Lianna\Documents\SPAD.neXt\Sound\Foley\Click.mp3">
+              <Volume>63</Volume>
+            </EventActionPlaySound>
+            <EventActionChangeValue TargetDataDefinition="LVAR:E_FCU_HEADING" Value="1" ValueOperation="Decrement" />
+          </EventActions>
+          <Options>
+            <Option Key="ACCEL_TIMEOUT" Value="100" />
+            <Option Key="ACCEL_MAX" Value="3" />
+          </Options>
+        </EventDefinition>
+        <EventDefinition Trigger="PRESSSHORT">
+          <EventActions>
+            <EventActionChangeValue TargetDataDefinition="LVAR:S_FCU_HEADING" Value="1" ValueOperation="Decrement" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="PRESSLONG">
+          <EventActions>
+            <EventActionChangeValue TargetDataDefinition="LVAR:S_FCU_HEADING" Value="1" ValueOperation="Increment" />
+          </EventActions>
+        </EventDefinition>
+      </EventDefinitions>
+    </Event>
+    <Event BoundTo="EGSD_E_3">
+      <EventDefinitions>
+        <EventDefinition Trigger="PRESSSHORT">
+          <EventActions>
+            <EventActionChangeValue TargetDataDefinition="LVAR:S_FCU_ALTITUDE" Value="1" ValueOperation="Decrement" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="PRESSLONG">
+          <EventActions>
+            <EventActionChangeValue TargetDataDefinition="LVAR:S_FCU_ALTITUDE" Value="1" ValueOperation="Increment" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Priority="100" Trigger="TUNER_CLOCKWISE">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LOCAL:AVIONICS ARE POWERED" />
+          </EventConditions>
+          <EventActions>
+            <EventActionPlaySound SoundName="D:\Users\Lianna\Documents\SPAD.neXt\Sound\Foley\Click.mp3">
+              <Volume>50</Volume>
+            </EventActionPlaySound>
+            <EventActionChangeValue TargetDataDefinition="LVAR:E_FCU_ALTITUDE" Value="1" ValueOperation="Increment" />
+          </EventActions>
+          <Options>
+            <Option Key="ACCEL_TIMEOUT" Value="100" />
+            <Option Key="ACCEL_MAX" Value="3" />
+          </Options>
+        </EventDefinition>
+        <EventDefinition Priority="100" Trigger="TUNER_COUNTERCLOCKWISE" IsFinal="true">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LOCAL:AVIONICS ARE POWERED" />
+          </EventConditions>
+          <EventActions>
+            <EventActionPlaySound SoundName="D:\Users\Lianna\Documents\SPAD.neXt\Sound\Foley\Click.mp3">
+              <Volume>50</Volume>
+            </EventActionPlaySound>
+            <EventActionChangeValue TargetDataDefinition="LVAR:E_FCU_ALTITUDE" Value="1" ValueOperation="Decrement" />
+          </EventActions>
+          <Options>
+            <Option Key="ACCEL_TIMEOUT" Value="100" />
+            <Option Key="ACCEL_MAX" Value="3" />
+          </Options>
+        </EventDefinition>
+      </EventDefinitions>
+    </Event>
+    <Event BoundTo="EGSD_E_4">
+      <EventDefinitions>
+        <EventDefinition Trigger="PRESSSHORT">
+          <EventActions>
+            <EventActionChangeValue TargetDataDefinition="LVAR:S_FCU_VERTICAL_SPEED" Value="1" ValueOperation="Decrement" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="TUNER_CLOCKWISE">
+          <EventActions>
+            <EventActionPlaySound SoundName="D:\Users\Lianna\Documents\SPAD.neXt\Sound\Foley\Click.mp3">
+              <Volume>50</Volume>
+            </EventActionPlaySound>
+            <EventActionChangeValue TargetDataDefinition="LVAR:E_FCU_VS" Value="1" ValueOperation="Increment" />
+          </EventActions>
+          <Options>
+            <Option Key="ACCEL_MAX" Value="3" />
+          </Options>
+        </EventDefinition>
+        <EventDefinition Trigger="TUNER_COUNTERCLOCKWISE">
+          <EventActions>
+            <EventActionPlaySound SoundName="D:\Users\Lianna\Documents\SPAD.neXt\Sound\Foley\Click.mp3">
+              <Volume>50</Volume>
+            </EventActionPlaySound>
+            <EventActionChangeValue TargetDataDefinition="LVAR:E_FCU_VS" Value="1" ValueOperation="Decrement" />
+          </EventActions>
+          <Options>
+            <Option Key="ACCEL_MAX" Value="3" />
+          </Options>
+        </EventDefinition>
+        <EventDefinition Trigger="PRESSLONG">
+          <EventActions>
+            <EventActionChangeValue TargetDataDefinition="LVAR:S_FCU_VERTICAL_SPEED" Value="1" ValueOperation="Increment" />
+          </EventActions>
+        </EventDefinition>
+      </EventDefinitions>
+    </Event>
+    <Event BoundTo="EGSD_PLUS_IMAGE">
+      <EventDefinitions>
+        <EventDefinition SingletonID="91fb60b2-de15-4877-9e09-7c0c84f9bf72" Trigger="DEFAULTDATA">
+          <EventActions>
+            <EventActionDummy SingletonID="91fb60b2-de15-4877-9e09-7c0c84f9bf72">
+              <Data type="SimpleGauge">
+                <SimpleGauge>
+                  <GaugeLayers>
+                    <GaugeColorLayer Layer="0" Name="BackgroundLayer" Width="800" Height="100" />
+                    <GaugeImageLayer Layer="2" Name="SPD" X="10" Y="10" Width="47" Height="29" ImageId="99a238ff-e811-560a-9c0b-8a8543090b59" SizeMode="SIZE" />
+                    <GaugeImageLayer Layer="3" Name="MACH" Disabled="true" X="68" Y="11" Width="75" Height="18" ImageId="7e8c419b-b814-5866-8f45-57692975554f" SizeMode="SIZE" />
+                    <GaugeImageLayer Layer="4" Name="HDG+V_S" X="221" Y="11" Width="523" Height="29" ImageId="b77304ba-8968-5a8d-8ffb-05800e4861e5" SizeMode="SIZE" />
+                    <GaugeImageLayer Layer="6" Name="LAT-ALT" X="334" Y="11" Width="183" Height="18" ImageId="52f34f3e-ae75-5a25-b109-b7c8ad7c6f5c" SizeMode="SIZE" />
+                    <GaugeImageLayer Layer="7" Name="dot-alt" Disabled="true" X="590" Y="60" Width="26" Height="26" ImageId="0d196ae6-8e45-5314-ab04-cfcb6453f018" SizeMode="SIZE" />
+                    <GaugeImageLayer Layer="8" Name="dot-spd" Disabled="true" X="128" Y="60" Width="26" Height="26" ImageId="0d196ae6-8e45-5314-ab04-cfcb6453f018" SizeMode="SIZE" />
+                    <GaugeImageLayer Layer="9" Name="dot-hdg" Disabled="true" X="343" Y="60" Width="26" Height="26" ImageId="0d196ae6-8e45-5314-ab04-cfcb6453f018" SizeMode="SIZE" />
+                    <GaugeImageLayer Layer="10" Name="minus" Disabled="true" X="633" Y="71" Width="22" Height="7" ImageId="284efd4f-a0ab-59ba-b547-ac10f3c85cca" SizeMode="SIZE" />
+                    <GaugeImageLayer Layer="11" Name="plusminusminus" Disabled="true" X="641" Y="61" Width="7" Height="27" ImageId="3e6bf976-d3e7-59df-89f8-e26d934a5d70" SizeMode="SIZE" />
+                    <GaugeImageLayer Layer="5" Name="TRK+FPA" Disabled="true" X="279" Y="11" Width="514" Height="18" ImageId="4fca5bbd-5ce4-5909-99ba-bba5dc4e6ade" SizeMode="SIZE" />
+                    <GaugeTextLayer Layer="12" Name="fpa" X="653" Y="54" Width="149" Height="45" Foreground="Sienna" Font="DSEG7 Classic Mini" FontSize="40" HorizontalAlignment="0" VerticalAlignment="0">
+                      <Text>----</Text>
+                    </GaugeTextLayer>
+                    <GaugeTextLayer Layer="13" Name="alt" X="388" Y="54" Width="200" Height="45" Foreground="Sienna" Font="DSEG7 Classic Mini" FontSize="40" HorizontalAlignment="2" VerticalAlignment="0">
+                      <Text>00100</Text>
+                    </GaugeTextLayer>
+                    <GaugeTextLayer Layer="14" Name="hdg" Disabled="true" X="219" Y="54" Width="120" Height="45" Foreground="Sienna" Font="DSEG7 Classic Mini" FontSize="40" HorizontalAlignment="2" VerticalAlignment="0">
+                      <Text>---</Text>
+                    </GaugeTextLayer>
+                    <GaugeTextLayer Layer="15" Name="spd" Disabled="true" X="1" Y="54" Width="120" Height="45" Foreground="Sienna" Font="DSEG7 Classic Mini" FontSize="40" HorizontalAlignment="2" VerticalAlignment="0">
+                      <Text>---</Text>
+                    </GaugeTextLayer>
+                    <GaugeImageLayer Layer="1" Name="bg-all-off-15" Width="800" Height="100" ImageId="27282779-6ef6-5bd9-a1ed-28a31062690c" SizeMode="SIZE" />
+                  </GaugeLayers>
+                </SimpleGauge>
+              </Data>
+            </EventActionDummy>
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="LABEL">
+          <EventConditions>
+            <EventCondition ConditionComparator="Always" ConditionTargetValue="0" ConditionValueSource="LVAR:FNX2PLD_FCUSPD" />
+          </EventConditions>
+          <Comment>Set air speed target indication</Comment>
+          <EventActions>
+            <EventActionLabel TargetLayer="15" Text="'' + &#xD;&#xA;if ( [LVAR:FNX2PLD_FCUSPD] &gt;= 100,&#xD;&#xA;  format( [LVAR:FNX2PLD_FCUSPD], '000' ),&#xD;&#xA;  format( [LVAR:FNX2PLD_FCUSPD] / 100, '.00' )&#xD;&#xA;)" TextType="Exp" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="LABEL">
+          <EventConditions>
+            <EventCondition ConditionComparator="Always" ConditionTargetValue="0" ConditionValueSource="LVAR:FNX2PLD_FCUHDG" />
+          </EventConditions>
+          <Comment>Set heading target indication</Comment>
+          <EventActions>
+            <EventActionLabel TargetLayer="14" Text="'' + [LVAR:FNX2PLD_fcuHdg]" TextType="Exp" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="LABEL">
+          <EventConditions>
+            <EventCondition ConditionComparator="Always" ConditionTargetValue="0" ConditionValueSource="LVAR:FNX2PLD_FCUALT" />
+          </EventConditions>
+          <Comment>Set altitude target indication</Comment>
+          <EventActions>
+            <EventActionLabel TargetLayer="8" Text="'' + format( max( 100, min( 49000, [LVAR:FNX2PLD_fcuAlt] ) ), '00000')" TextType="Exp" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="LABEL" ConditionBinding="OR">
+          <EventConditions>
+            <EventCondition ConditionComparator="Always" ConditionTargetValue="0" ConditionValueSource="LVAR:FNX2PLD_FCUVS" />
+            <EventCondition ConditionComparator="Always" ConditionTargetValue="0" ConditionValueSource="LVAR:I_FCU_TRACK_FPA_MODE" />
+          </EventConditions>
+          <Comment>Set vertical speed target indication</Comment>
+          <EventActions>
+            <EventActionLabel TargetLayer="12" Text="If(&#xD;&#xA;   [LVAR:FNX2PLD_FCUVSDASHED],&#xD;&#xA;  '----',&#xD;&#xA;  If(&#xD;&#xA;     [LVAR:I_FCU_TRACK_FPA_MODE]  ,&#xD;&#xA;    format( Abs( [LVAR:FNX2PLD_fcuVs]  ), '0.0' ),&#xD;&#xA;    format( Abs( [LVAR:FNX2PLD_fcuVs] / 100 ), '00' ) + 'oo'&#xD;&#xA;  )&#xD;&#xA;)" TextType="Exp" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="MODE">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="0" ConditionValueSource="LVAR:FNX2PLD_FCUSPDDASHED" />
+          </EventConditions>
+          <Comment>Hide dot for managed speed</Comment>
+          <EventActions>
+            <EventActionLayerMode TargetLayer="8" TargetMode="0" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="MODE">
+          <EventConditions>
+            <EventCondition ConditionComparator="Unequal" ConditionTargetValue="0" ConditionValueSource="LVAR:FNX2PLD_FCUSPDDASHED" />
+          </EventConditions>
+          <Comment>Show dot for managed speed</Comment>
+          <EventActions>
+            <EventActionLayerMode TargetLayer="8" TargetMode="1" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="MODE">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="0" ConditionValueSource="LVAR:FNX2PLD_FCUHDGDASHED" />
+          </EventConditions>
+          <Comment>Hide dot for managed heading</Comment>
+          <EventActions>
+            <EventActionLayerMode TargetLayer="9" TargetMode="0" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="MODE">
+          <EventConditions>
+            <EventCondition ConditionComparator="Unequal" ConditionTargetValue="0" ConditionValueSource="LVAR:FNX2PLD_FCUHDGDASHED" />
+          </EventConditions>
+          <Comment>Show dot for managed heading</Comment>
+          <EventActions>
+            <EventActionLayerMode TargetLayer="9" TargetMode="1" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="MODE">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="0" ConditionValueSource="LVAR:I_FCU_ALTITUDE_MANAGED" />
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LOCAL:AVIONICS ARE POWERED" />
+          </EventConditions>
+          <Comment>Hide dot for managed altitude</Comment>
+          <EventActions>
+            <EventActionLayerMode TargetLayer="7" TargetMode="0" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="MODE">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LVAR:I_FCU_ALTITUDE_MANAGED" />
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LOCAL:AVIONICS ARE POWERED" />
+          </EventConditions>
+          <Comment>Show dot for managed altitude</Comment>
+          <EventActions>
+            <EventActionLayerMode TargetLayer="7" TargetMode="1" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="MODE">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LVAR:S_FCU_SPD_MACH" />
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LOCAL:AVIONICS ARE POWERED" />
+          </EventConditions>
+          <Comment>Switch display to MACH mode</Comment>
+          <EventActions>
+            <EventActionLayerMode TargetLayer="2" TargetMode="0" />
+            <EventActionLayerMode TargetLayer="3" TargetMode="1" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="MODE">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LOCAL:AVIONICS ARE POWERED" />
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="0" ConditionValueSource="LVAR:S_FCU_SPD_MACH" />
+          </EventConditions>
+          <Comment>Switch display to SPD mode</Comment>
+          <EventActions>
+            <EventActionLayerMode TargetLayer="2" TargetMode="1" />
+            <EventActionLayerMode TargetLayer="3" TargetMode="0" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="MODE">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LOCAL:AVIONICS ARE POWERED" />
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LVAR:I_FCU_TRACK_FPA_MODE" />
+          </EventConditions>
+          <Comment>Switch display to TRK/FPA mode</Comment>
+          <EventActions>
+            <EventActionLayerMode TargetLayer="5" TargetMode="1" />
+            <EventActionLayerMode TargetLayer="4" TargetMode="0" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="MODE">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LOCAL:AVIONICS ARE POWERED" />
+            <EventCondition ConditionComparator="Unequal" ConditionTargetValue="1" ConditionValueSource="LVAR:I_FCU_TRACK_FPA_MODE" />
+          </EventConditions>
+          <Comment>Switch display to HDG/VS mode</Comment>
+          <EventActions>
+            <EventActionLayerMode TargetLayer="5" TargetMode="0" />
+            <EventActionLayerMode TargetLayer="4" TargetMode="1" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="LABEL">
+          <EventConditions>
+            <EventCondition ConditionComparator="Always" ConditionTargetValue="0" ConditionValueSource="LVAR:FNX2PLD_FCUSPD" />
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="0" ConditionValueSource="LVAR:FNX2PLD_FCUSPDDASHED" />
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LOCAL:AVIONICS ARE POWERED" />
+          </EventConditions>
+          <Comment>Display formatted SPD or MACH value</Comment>
+          <EventActions>
+            <EventActionLabel TargetLayer="15" Text="'' +&#xD;&#xA;format(&#xD;&#xA;  if( [LVAR:I_FCU_SPEED_MODE] == 0], [LVAR:FNX2PLD_fcuSpd] / 100, [LVAR:FNX2PLD_fcuSpd] ),&#xD;&#xA;  if( [LVAR:I_FCU_SPEED_MODE] == 0], '.00', '000' )&#xD;&#xA;)" TextType="Exp" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="LABEL">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LVAR:FNX2PLD_FCUSPDDASHED" />
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LOCAL:AVIONICS ARE POWERED" />
+          </EventConditions>
+          <Comment>Change speed to "---"</Comment>
+          <EventActions>
+            <EventActionLabel TargetLayer="15" Text="---" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="LABEL">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LOCAL:AVIONICS ARE POWERED" />
+            <EventCondition ConditionComparator="GreaterOrEqual" ConditionTargetValue="0" ConditionValueSource="LVAR:FNX2PLD_FCUHDG" />
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="0" ConditionValueSource="LVAR:FNX2PLD_FCUHDGDASHED" />
+          </EventConditions>
+          <Comment>Display formatted HDG value</Comment>
+          <EventActions>
+            <EventActionLabel TargetLayer="14" Text="format(  [LVAR:FNX2PLD_fcuHdg] , '000' )" TextType="Exp" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="LABEL">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LOCAL:AVIONICS ARE POWERED" />
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LVAR:FNX2PLD_FCUHDGDASHED" />
+          </EventConditions>
+          <Comment>Change heading to "---"</Comment>
+          <EventActions>
+            <EventActionLabel TargetLayer="14" Text="---" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="LABEL">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LOCAL:AVIONICS ARE POWERED" />
+            <EventCondition ConditionComparator="Always" ConditionTargetValue="0" ConditionValueSource="LVAR:FNX2PLD_FCUALT" />
+          </EventConditions>
+          <Comment>Display formatted dialed in altitude</Comment>
+          <EventActions>
+            <EventActionLabel TargetLayer="13" Text="format( min( 49000, max(  [LVAR:FNX2PLD_fcuAlt] , 100 ) ), '00000' )" TextType="Exp" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="MODE" ConditionBinding="OR">
+          <EventConditions>
+            <EventCondition ConditionComparator="Less" ConditionTargetValue="0" ConditionValueSource="LVAR:FNX2PLD_FCUVS" />
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LVAR:FNX2PLD_FCUVSDASHED" />
+          </EventConditions>
+          <Comment>Show the VS value as -</Comment>
+          <EventActions>
+            <EventActionLayerMode TargetLayer="11" TargetMode="0" />
+            <EventActionLayerMode TargetLayer="10" TargetMode="1" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="MODE">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LOCAL:AVIONICS ARE POWERED" />
+            <EventCondition ConditionComparator="Greater" ConditionTargetValue="0" ConditionValueSource="LVAR:FNX2PLD_FCUVS" />
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="0" ConditionValueSource="LVAR:FNX2PLD_FCUVSDASHED" />
+          </EventConditions>
+          <Comment>Show the VS value as +</Comment>
+          <EventActions>
+            <EventActionLayerMode TargetLayer="11" TargetMode="1" />
+            <EventActionLayerMode TargetLayer="10" TargetMode="1" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="MODE">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LOCAL:AVIONICS ARE POWERED" />
+            <EventCondition ConditionComparator="Greater" ConditionTargetValue="0" ConditionValueSource="LVAR:FNX2PLD_FCUVS" />
+          </EventConditions>
+          <Comment>Show the VS value as +</Comment>
+          <EventActions>
+            <EventActionLayerMode TargetLayer="11" TargetMode="1" />
+            <EventActionLayerMode TargetLayer="10" TargetMode="1" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="LABEL">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LVAR:FNX2PLD_FCUVSDASHED" />
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LOCAL:AVIONICS ARE POWERED" />
+          </EventConditions>
+          <Comment>Change vertical speed to "----"</Comment>
+          <EventActions>
+            <EventActionLabel TargetLayer="12" Text="----" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Priority="10" Trigger="SWIPE_LEFT">
+          <EventActions>
+            <EventActionCommand CommandName="SPAD_neXt.Gauge_Next" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Priority="10" Trigger="SWIPE_RIGHT">
+          <EventActions>
+            <EventActionCommand CommandName="SPAD_neXt.Gauge_Prev" />
+          </EventActions>
+        </EventDefinition>
+      </EventDefinitions>
+    </Event>
+    <Event BoundTo="EGSD_1_2">
+      <EventDefinitions>
+        <EventDefinition SingletonID="91fb60b2-de15-4877-9e09-7c0c84f9bf72" Trigger="DEFAULTDATA">
+          <EventActions>
+            <EventActionDummy SingletonID="91fb60b2-de15-4877-9e09-7c0c84f9bf72">
+              <Data type="SimpleGauge">
+                <SimpleGauge>
+                  <GaugeLayers>
+                    <GaugeColorLayer Layer="0" Name="BackgroundLayer" Width="120" Height="120" />
+                    <GaugeImageLayer Layer="1" Name="AP1 OFF @2x" Width="120" Height="120" ImageId="28809a07-84fb-5fbd-a28d-29ee59119a22" />
+                    <GaugeTextLayer Layer="3" Name="Textlayer" X="6" Y="28" Width="108" Height="108" Foreground="Sienna" Font="Segoe UI" FontSize="25" FontStyle="1" />
+                    <GaugeImageLayer Layer="2" Name="AP1 ON @2x" Disabled="true" Width="120" Height="120" ImageId="c1d0c8c6-1039-5bf7-8768-f440cd6b1ca9" />
+                  </GaugeLayers>
+                </SimpleGauge>
+              </Data>
+            </EventActionDummy>
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="PRESSSHORT">
+          <EventActions>
+            <EventActionChangeValue TargetDataDefinition="LVAR:S_FCU_AP1" Value="1" ValueOperation="Increment">
+              <Options>
+                <Option Key="HASMINMAX" Value="False" />
+                <Option Key="VALUEMAX" Value="1" />
+                <Option Key="ROLLOVER" Value="True" />
+              </Options>
+            </EventActionChangeValue>
+            <EventActionChangeValue TargetDataDefinition="LVAR:S_FCU_AP1" Value="1" ValueOperation="Increment" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="MODE">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="0" ConditionValueSource="LVAR:I_FCU_AP1" />
+          </EventConditions>
+          <EventActions>
+            <EventActionLayerMode TargetLayer="2" TargetMode="0" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="MODE">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LVAR:I_FCU_AP1" />
+          </EventConditions>
+          <EventActions>
+            <EventActionLayerMode TargetLayer="2" TargetMode="1" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="PRESSLONG">
+          <EventActions>
+            <EventActionChangeValue TargetDataDefinition="LVAR:S_FCU_AP1" Value="0" />
+          </EventActions>
+        </EventDefinition>
+      </EventDefinitions>
+    </Event>
+    <Event BoundTo="EGSD_1_3">
+      <EventDefinitions>
+        <EventDefinition SingletonID="91fb60b2-de15-4877-9e09-7c0c84f9bf72" Trigger="DEFAULTDATA">
+          <EventActions>
+            <EventActionDummy SingletonID="91fb60b2-de15-4877-9e09-7c0c84f9bf72">
+              <Data type="SimpleGauge">
+                <SimpleGauge>
+                  <GaugeLayers>
+                    <GaugeColorLayer Layer="0" Name="BackgroundLayer" Width="120" Height="120" />
+                    <GaugeImageLayer Layer="1" Name="AP2 OFF @2x" Width="120" Height="120" ImageId="271efab5-d206-5bab-8eb3-61ead8940f7f" />
+                    <GaugeTextLayer Layer="3" Name="Textlayer" X="6" Y="28" Width="108" Height="108" Foreground="Sienna" Font="Segoe UI" FontSize="25" FontStyle="1" />
+                    <GaugeImageLayer Layer="2" Name="AP2 ON @2x" Disabled="true" Width="120" Height="120" ImageId="95782b79-d868-56e5-b277-f590429aabc9" />
+                  </GaugeLayers>
+                </SimpleGauge>
+              </Data>
+            </EventActionDummy>
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="PRESSSHORT">
+          <EventActions>
+            <EventActionChangeValue TargetDataDefinition="LVAR:S_FCU_AP2" Value="1" ValueOperation="Increment">
+              <Options>
+                <Option Key="HASMINMAX" Value="False" />
+                <Option Key="VALUEMAX" Value="1" />
+                <Option Key="ROLLOVER" Value="True" />
+              </Options>
+            </EventActionChangeValue>
+            <EventActionChangeValue TargetDataDefinition="LVAR:S_FCU_AP2" Value="1" ValueOperation="Increment" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="MODE">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="0" ConditionValueSource="LVAR:I_FCU_AP2" />
+          </EventConditions>
+          <EventActions>
+            <EventActionLayerMode TargetLayer="2" TargetMode="0" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="MODE">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LVAR:I_FCU_AP2" />
+          </EventConditions>
+          <EventActions>
+            <EventActionLayerMode TargetLayer="2" TargetMode="1" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="PRESSLONG">
+          <EventActions>
+            <EventActionChangeValue TargetDataDefinition="LVAR:S_FCU_AP2" Value="0" />
+          </EventActions>
+        </EventDefinition>
+      </EventDefinitions>
+    </Event>
+    <Event BoundTo="EGSD_2_4">
+      <EventDefinitions>
+        <EventDefinition SingletonID="91fb60b2-de15-4877-9e09-7c0c84f9bf72" Trigger="DEFAULTDATA">
+          <EventActions>
+            <EventActionDummy SingletonID="91fb60b2-de15-4877-9e09-7c0c84f9bf72">
+              <Data type="SimpleGauge">
+                <SimpleGauge>
+                  <GaugeLayers>
+                    <GaugeColorLayer Layer="0" Name="BackgroundLayer" Width="120" Height="120" />
+                    <GaugeImageLayer Layer="1" Name="Master Caution OFF @2x" Width="120" Height="120" ImageId="f4ed4554-4b74-514e-82ee-f46432b41772" />
+                    <GaugeTextLayer Layer="3" Name="Textlayer" X="6" Y="6" Width="108" Height="108" />
+                    <GaugeImageLayer Layer="2" Name="Master Caution ON @2x" Disabled="true" Width="120" Height="120" ImageId="3d6ca174-c4bd-5a70-89dc-c6c2040481e5" />
+                  </GaugeLayers>
+                </SimpleGauge>
+              </Data>
+            </EventActionDummy>
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="MODE">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="0" ConditionValueSource="LVAR:I_MIP_MASTER_CAUTION_CAPT" />
+          </EventConditions>
+          <EventActions>
+            <EventActionLayerMode TargetLayer="2" TargetMode="0" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="MODE">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LVAR:I_MIP_MASTER_CAUTION_CAPT" />
+          </EventConditions>
+          <EventActions>
+            <EventActionLayerMode TargetLayer="2" TargetMode="1" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="PRESS">
+          <EventActions>
+            <EventActionChangeValue TargetDataDefinition="LVAR:S_MIP_MASTER_CAUTION_CAPT" Value="1" ValueOperation="Increment" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="RELEASE">
+          <EventActions>
+            <EventActionChangeValue TargetDataDefinition="LVAR:S_MIP_MASTER_CAUTION_CAPT" Value="1" ValueOperation="Increment" />
+          </EventActions>
+        </EventDefinition>
+      </EventDefinitions>
+    </Event>
+    <Event BoundTo="EGSD_1_4">
+      <EventDefinitions>
+        <EventDefinition SingletonID="91fb60b2-de15-4877-9e09-7c0c84f9bf72" Trigger="DEFAULTDATA">
+          <EventActions>
+            <EventActionDummy SingletonID="91fb60b2-de15-4877-9e09-7c0c84f9bf72">
+              <Data type="SimpleGauge">
+                <SimpleGauge>
+                  <GaugeLayers>
+                    <GaugeColorLayer Layer="0" Name="BackgroundLayer" Width="120" Height="120" />
+                    <GaugeImageLayer Layer="1" Name="Master Warn OFF @2x" Width="120" Height="120" ImageId="5fa49cd0-9af8-502d-bb01-9dd79f3534fc" />
+                    <GaugeTextLayer Layer="3" Name="Textlayer" X="6" Y="6" Width="108" Height="108" />
+                    <GaugeImageLayer Layer="2" Name="Master Warn ON @2x" Disabled="true" Width="120" Height="120" ImageId="6c75ce91-6085-5749-9973-228b22248488" />
+                  </GaugeLayers>
+                </SimpleGauge>
+              </Data>
+            </EventActionDummy>
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="MODE">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="0" ConditionValueSource="LVAR:I_MIP_MASTER_WARNING_CAPT" />
+          </EventConditions>
+          <EventActions>
+            <EventActionLayerMode TargetLayer="2" TargetMode="0" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="MODE">
+          <EventConditions>
+            <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="LVAR:I_MIP_MASTER_WARNING_CAPT" />
+          </EventConditions>
+          <EventActions>
+            <EventActionLayerMode TargetLayer="2" TargetMode="1" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="PRESS">
+          <EventActions>
+            <EventActionChangeValue TargetDataDefinition="LVAR:S_MIP_MASTER_WARNING_CAPT" Value="1" ValueOperation="Increment" />
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="RELEASE">
+          <EventActions>
+            <EventActionChangeValue TargetDataDefinition="LVAR:S_MIP_MASTER_WARNING_CAPT" Value="1" ValueOperation="Increment" />
+          </EventActions>
+        </EventDefinition>
+      </EventDefinitions>
+    </Event>
+    <Event BoundTo="EGSD_1_1">
+      <EventDefinitions>
+        <EventDefinition SingletonID="91fb60b2-de15-4877-9e09-7c0c84f9bf72" Trigger="DEFAULTDATA">
+          <EventActions>
+            <EventActionDummy SingletonID="91fb60b2-de15-4877-9e09-7c0c84f9bf72">
+              <Data type="SimpleGauge">
+                <SimpleGauge>
+                  <GaugeLayers>
+                    <GaugeColorLayer Layer="0" Name="BackgroundLayer" Width="120" Height="120" />
+                    <GaugeImageLayer Layer="1" Width="120" Height="120" ImageId="00000000-0000-0000-0000-000000000000" />
+                    <GaugeTextLayer Layer="2" Name="Chrono" X="6" Y="44" Width="107" Height="30" Foreground="Sienna" Font="DSEG7 Classic Mini" FontSize="27" FontStyle="1">
+                      <Text>00:00</Text>
+                    </GaugeTextLayer>
+                  </GaugeLayers>
+                </SimpleGauge>
+              </Data>
+            </EventActionDummy>
+          </EventActions>
+        </EventDefinition>
+        <EventDefinition Trigger="LABEL">
+          <EventConditions>
+            <EventCondition ConditionComparator="Always" ConditionTargetValue="0" ConditionValueSource="LVAR:FNX2PLD_CLOCKCHR" />
+          </EventConditions>
+          <EventActions>
+            <EventActionLabel TargetLayer="2" Text="if ( [LVAR:FNX2PLD_CLOCKCHR] &lt; 0,&#xD;&#xA;  '--:--',&#xD;&#xA;format( SubStr(  [LVAR:FNX2PLD_CLOCKCHR], 0, 2 ), '00' )&#xD;&#xA;+ ':'&#xD;&#xA;+ format( SubStr( [LVAR:FNX2PLD_CLOCKCHR], 2, 2 ), '00'  )&#xD;&#xA;)" TextType="Exp" />
+          </EventActions>
+        </EventDefinition>
+      </EventDefinitions>
+    </Event>
+  </Events>
+  <Images>
+    <Image Id="{99a238ff-e811-560a-9c0b-8a8543090b59}" Name="SPD" Source="D:\Users\Lianna\Documents\SPAD.neXt\StreamdeckImages\Lianna\A320\FCU\SD+\SPD.png" />
+    <Image Id="{7e8c419b-b814-5866-8f45-57692975554f}" Name="MACH" Source="D:\Users\Lianna\Documents\SPAD.neXt\StreamdeckImages\Lianna\A320\FCU\SD+\MACH.png" />
+    <Image Id="{b77304ba-8968-5a8d-8ffb-05800e4861e5}" Name="HDG+V_S" Source="D:\Users\Lianna\Documents\SPAD.neXt\StreamdeckImages\Lianna\A320\FCU\SD+\HDG+V_S.png" />
+    <Image Id="{52f34f3e-ae75-5a25-b109-b7c8ad7c6f5c}" Name="LAT-ALT" Source="D:\Users\Lianna\Documents\SPAD.neXt\StreamdeckImages\Lianna\A320\FCU\SD+\LAT-ALT.png" />
+    <Image Id="{0d196ae6-8e45-5314-ab04-cfcb6453f018}" Name="dot" Source="D:\Users\Lianna\Documents\SPAD.neXt\StreamdeckImages\Lianna\A320\FCU\SD+\dot.png" />
+    <Image Id="{284efd4f-a0ab-59ba-b547-ac10f3c85cca}" Name="minus" Source="D:\Users\Lianna\Documents\SPAD.neXt\StreamdeckImages\Lianna\A320\FCU\SD+\minus.png" />
+    <Image Id="{3e6bf976-d3e7-59df-89f8-e26d934a5d70}" Name="plusminusminus" Source="D:\Users\Lianna\Documents\SPAD.neXt\StreamdeckImages\Lianna\A320\FCU\SD+\plusminusminus.png" />
+    <Image Id="{4fca5bbd-5ce4-5909-99ba-bba5dc4e6ade}" Name="TRK+FPA" Source="D:\Users\Lianna\Documents\SPAD.neXt\StreamdeckImages\Lianna\A320\FCU\SD+\TRK+FPA.png" />
+    <Image Id="{27282779-6ef6-5bd9-a1ed-28a31062690c}" Name="bg-all-off-15" Source="D:\Users\Lianna\Documents\SPAD.neXt\StreamdeckImages\Lianna\A320\FCU\SD+\bg-all-off-15.png" />
+    <Image Id="{28809a07-84fb-5fbd-a28d-29ee59119a22}" Name="AP1 OFF @2x" Source="D:\Users\Lianna\Documents\SPAD.neXt\StreamdeckImages\Lianna\A320\FCU\AP1 OFF @2x.png" />
+    <Image Id="{c1d0c8c6-1039-5bf7-8768-f440cd6b1ca9}" Name="AP1 ON @2x" Source="D:\Users\Lianna\Documents\SPAD.neXt\StreamdeckImages\Lianna\A320\FCU\AP1 ON @2x.png" />
+    <Image Id="{271efab5-d206-5bab-8eb3-61ead8940f7f}" Name="AP2 OFF @2x" Source="D:\Users\Lianna\Documents\SPAD.neXt\StreamdeckImages\Lianna\A320\FCU\AP2 OFF @2x.png" />
+    <Image Id="{95782b79-d868-56e5-b277-f590429aabc9}" Name="AP2 ON @2x" Source="D:\Users\Lianna\Documents\SPAD.neXt\StreamdeckImages\Lianna\A320\FCU\AP2 ON @2x.png" />
+    <Image Id="{f4ed4554-4b74-514e-82ee-f46432b41772}" Name="Master Caution OFF @2x" Source="D:\Users\Lianna\Documents\SPAD.neXt\StreamdeckImages\Lianna\A320\Warning Panel\Master Caution OFF @2x.png" />
+    <Image Id="{3d6ca174-c4bd-5a70-89dc-c6c2040481e5}" Name="Master Caution ON @2x" Source="D:\Users\Lianna\Documents\SPAD.neXt\StreamdeckImages\Lianna\A320\Warning Panel\Master Caution ON @2x.png" />
+    <Image Id="{5fa49cd0-9af8-502d-bb01-9dd79f3534fc}" Name="Master Warn OFF @2x" Source="D:\Users\Lianna\Documents\SPAD.neXt\StreamdeckImages\Lianna\A320\Warning Panel\Master Warn OFF @2x.png" />
+    <Image Id="{6c75ce91-6085-5749-9973-228b22248488}" Name="Master Warn ON @2x" Source="D:\Users\Lianna\Documents\SPAD.neXt\StreamdeckImages\Lianna\A320\Warning Panel\Master Warn ON @2x.png" />
+  </Images>
+  <Extensions />
+</DevicePage>
